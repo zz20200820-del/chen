@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#f4f0e8" />
   <title>面试练场 · 公务员面试训练</title>
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
   <div class="app-shell">
@@ -43,6 +43,16 @@
           </div>
         </article>
 
+        <article class="home-profile-card">
+          <div class="profile-avatar compact">林</div>
+          <div class="home-profile-main">
+            <span>早上好，林同学 · 备考第 21 天</span>
+            <h3>2027 国考 · 税务系统</h3>
+            <p>笃行Ⅲ · 今日已练 1 题 · 连续训练 7 天</p>
+          </div>
+          <button data-nav="profile">训练档案 ›</button>
+        </article>
+
         <article class="friend-practice-card">
           <div class="friend-practice-icon">友</div>
           <div class="friend-practice-copy">
@@ -52,6 +62,12 @@
           </div>
           <button id="create-room-button">创建房间</button>
           <button class="join-room-button" data-open-sheet="room-sheet">加入房间</button>
+        </article>
+
+        <article class="coach-entry-card" data-open-sheet="coach-sheet" role="button" tabindex="0">
+          <div class="coach-entry-badge">1V1</div>
+          <div><span>ONE-ON-ONE COACHING</span><h3>一对一指导</h3><p>认证名师与高分上岸考生，预约模拟面试、模板梳理和专项纠偏。</p></div>
+          <button data-open-sheet="coach-sheet">选择老师 ›</button>
         </article>
 
         <section class="stats-grid" aria-label="训练数据">
@@ -102,19 +118,6 @@
           </article>
         </section>
 
-        <section class="section-block">
-          <div class="section-heading">
-            <div><span class="section-kicker">COMMUNITY</span><h2>练场动态</h2></div>
-          </div>
-          <article class="feed-card">
-            <div class="feed-avatar">苏</div>
-            <div>
-              <div class="feed-line"><strong>苏木</strong><span>刚刚晋级「明辨 · Ⅰ」</span></div>
-              <p>“第一次不看稿讲满三分钟，原来真的会越练越顺。”</p>
-              <div class="feed-actions"><button>👏 28</button><button>有启发 12</button></div>
-            </div>
-          </article>
-        </section>
       </section>
 
       <section class="page" id="page-library" data-title="素材与真题">
@@ -188,8 +191,13 @@
       <section class="page" id="page-profile" data-title="我的训练">
         <article class="profile-card">
           <div class="profile-avatar">林</div>
-          <div><span>备考第 21 天</span><h2>林同学</h2><p>目标：2027 国考 · 税务系统</p></div>
+          <div><span>备考第 21 天 · 浙江杭州</span><h2>林同学 <i class="member-tag">练场会员</i></h2><p>目标：2027 国考 · 税务系统</p><div class="profile-tags"><b>综合分析专项</b><b>每晚 21:00 可约练</b></div></div>
           <button aria-label="编辑资料">›</button>
+        </article>
+
+        <article class="profile-progress-card">
+          <div><span>本周计划</span><strong>已完成 8 / 12 题</strong><small>下一步：组织管理题连续表达</small></div>
+          <div class="profile-week-ring"><b>67%</b><span>周进度</span></div>
         </article>
 
         <article class="rank-panel clickable-panel" id="report-entry" role="button" tabindex="0">
@@ -204,12 +212,12 @@
         </section>
 
         <section class="menu-card">
+          <button data-open-sheet="records-sheet"><span class="menu-icon">录</span><div><strong>练习记录</strong><small>23 次练习 · 查看题目、录音与评价</small></div><em>›</em></button>
+          <button data-open-sheet="templates-sheet"><span class="menu-icon">模</span><div><strong>我的模板</strong><small>可视化答题方向 · 逻辑词 · 提示词</small></div><em><b class="member-mini">核心</b>›</em></button>
           <button data-open-sheet="messages-sheet"><span class="menu-icon">信</span><div><strong>消息与好友</strong><small>3 条未读 · 约练与私信</small></div><em><b class="unread-badge">3</b>›</em></button>
           <button data-open-sheet="course-sheet"><span class="menu-icon">课</span><div><strong>面试基础课</strong><small>免费学习 · 已完成 35%</small></div><em>›</em></button>
           <button data-nav="library"><span class="menu-icon">藏</span><div><strong>我的素材收藏</strong><small>12 条素材 · 4 道真题</small></div><em>›</em></button>
-          <button data-open-sheet="coach-sheet"><span class="menu-icon">师</span><div><strong>一对一指导</strong><small>认证老师与高分考生</small></div><em>›</em></button>
-          <button data-open-sheet="membership-sheet"><span class="menu-icon">会</span><div><strong>练场会员</strong><small>AI 畅练与智能检索</small></div><em>›</em></button>
-          <button data-open-sheet="topup-sheet"><span class="menu-icon">充</span><div><strong>充值与活动</strong><small>储值赠会员 · 多档权益</small></div><em>›</em></button>
+          <button data-open-sheet="membership-sheet"><span class="menu-icon">会</span><div><strong>会员与充值</strong><small>会员权益 · 储值活动 · 账户余额</small></div><em>›</em></button>
         </section>
       </section>
     </main>
@@ -252,6 +260,32 @@
     <article class="member-report-lock"><div><span>会员专属详细分析</span><h3>查看题型短板、口头禅分布与未来7天训练计划</h3></div><button data-open-sheet="membership-sheet">解锁报告</button></article>
   </section>
 
+  <section class="bottom-sheet" id="records-sheet" aria-modal="true" role="dialog" aria-labelledby="records-title">
+    <button class="sheet-close" data-close-sheet aria-label="关闭">×</button>
+    <span class="section-kicker">PRACTICE HISTORY</span><h2 id="records-title">练习记录</h2>
+    <p class="sheet-intro">按时间回看练过的题目、作答方式和 AI／同伴评价。</p>
+    <div class="record-summary"><div><strong>23</strong><span>累计练习</span></div><div><strong>82</strong><span>近期均分</span></div><div><strong>7.4h</strong><span>开口时长</span></div></div>
+    <div class="practice-history-list">
+      <button data-open-sheet="report-sheet"><span class="history-score good-score">86</span><div><strong>基层工作“干部多跑腿”现象</strong><small>今天 08:42 · AI 单练 · 综合分析</small><p>观点清晰，建议补充监督闭环和数字适老化。</p></div><em>查看评价 ›</em></button>
+      <button data-open-sheet="report-sheet"><span class="history-score">81</span><div><strong>青年干部下基层调研活动</strong><small>昨天 21:16 · 好友对练 · 组织管理</small><p>流程完整，调研对象覆盖还可以更有层次。</p></div><em>听录音 ›</em></button>
+      <button data-open-sheet="report-sheet"><span class="history-score warm-score">76</span><div><strong>政务大厅系统故障应急处置</strong><small>7 月 15 日 · 线上排位 · 应急应变</small><p>现场安抚较好，备用方案和信息发布略慢。</p></div><em>复盘 ›</em></button>
+    </div>
+  </section>
+
+  <section class="bottom-sheet template-sheet" id="templates-sheet" aria-modal="true" role="dialog" aria-labelledby="templates-title">
+    <button class="sheet-close" data-close-sheet aria-label="关闭">×</button>
+    <span class="section-kicker">VISUAL ANSWER MAP</span><h2 id="templates-title">我的模板</h2>
+    <p class="sheet-intro">把答题方向、逻辑词和提示词做成可视化路线。练习时可随时弹出，帮助形成自己的表达结构。</p>
+    <article class="template-quota"><div><span>普通用户</span><strong>已创建 1 / 1 套</strong><small>会员可创建不限套模板</small></div><button data-open-sheet="membership-sheet">升级会员</button></article>
+    <article class="visual-template-card selected-template">
+      <div class="template-card-head"><div><span>综合分析题</span><h3>现象分析四步法</h3></div><em>使用中</em></div>
+      <div class="template-flow"><div><b>01</b><strong>表态定位</strong><small>怎么看 · 核心价值</small></div><i>→</i><div><b>02</b><strong>分析影响</strong><small>积极面 · 风险点</small></div><i>→</i><div><b>03</b><strong>提出对策</strong><small>主体 · 动作 · 闭环</small></div></div>
+      <div class="template-keywords"><span>逻辑词：首先 / 同时 / 更重要的是</span><span>提示词：群众需求、执行主体、监督反馈</span></div>
+      <div class="template-actions"><button id="use-template-button">练习时使用</button><button data-demo-action="模板编辑器将在正式版支持拖拽">编辑模板</button><button data-demo-action="模板分享卡片已生成">分享到圈子</button></div>
+    </article>
+    <article class="teacher-template-card"><span>老师共享</span><div><strong>组织管理题「目标—对象—流程—复盘」</strong><small>陈老师通过一对一课堂分享 · 可直接导入</small></div><button data-demo-action="老师模板已导入">导入</button></article>
+  </section>
+
   <section class="bottom-sheet" id="messages-sheet" aria-modal="true" role="dialog" aria-labelledby="messages-title">
     <button class="sheet-close" data-close-sheet aria-label="关闭">×</button>
     <span class="section-kicker">MESSAGES</span><h2 id="messages-title">消息与好友</h2>
@@ -262,19 +296,6 @@
       <button data-demo-action="进入练场系统通知"><i class="friend-avatar system">练</i><span><strong>练场通知</strong><small>你的AI训练报告已生成</small></span><em>昨天</em></button>
     </div>
     <button class="primary-button full" data-open-sheet="room-sheet">发起好友约练</button>
-  </section>
-
-  <section class="bottom-sheet" id="topup-sheet" aria-modal="true" role="dialog" aria-labelledby="topup-title">
-    <button class="sheet-close" data-close-sheet aria-label="关闭">×</button>
-    <span class="section-kicker">TOP-UP BONUS</span><h2 id="topup-title">充值与限时活动</h2>
-    <p class="sheet-intro">储值余额可用于会员、一对一指导与虚拟礼物。以下为产品活动方案演示。</p>
-    <div class="topup-grid">
-      <button data-demo-action="支付将在正式版接入"><span>热身档</span><strong>¥298</strong><small>赠 7 天会员</small></button>
-      <button data-demo-action="支付将在正式版接入"><span>冲刺档</span><strong>¥598</strong><small>赠 1 个月会员</small></button>
-      <button class="featured" data-demo-action="支付将在正式版接入"><em>最受欢迎</em><span>上岸档</span><strong>¥1,000</strong><small>赠 2 个月会员＋专属徽章</small></button>
-      <button data-demo-action="支付将在正式版接入"><span>长期档</span><strong>¥2,000</strong><small>赠 5 个月会员＋指导券</small></button>
-    </div>
-    <p class="topup-note">正式上线前需明确储值余额使用范围、退款规则、发票与未成年人保护。</p>
   </section>
 
   <section class="bottom-sheet" id="ai-sheet" aria-modal="true" role="dialog" aria-labelledby="ai-title">
@@ -320,6 +341,12 @@
     <button class="sheet-close" data-close-sheet aria-label="退出答题">×</button>
     <div class="practice-top"><span class="tag dark">综合分析</span><span id="practice-step">第 1 / 1 题</span></div>
     <h2>对于基层工作中“干部多跑腿，群众少跑路”的现象，你怎么看？</h2>
+    <button class="template-assist-button" id="template-assist-button"><span>模</span><div><strong>调用「现象分析四步法」</strong><small>展开答题方向、逻辑词和提示词</small></div><em>展开</em></button>
+    <article class="template-assist-panel hidden" id="template-assist-panel">
+      <div><b>方向</b><span>表态定位 → 分析影响 → 问题边界 → 对策闭环</span></div>
+      <div><b>逻辑词</b><span>首先 · 同时 · 更重要的是 · 最终</span></div>
+      <div><b>提示词</b><span>群众需求 / 数据共享 / 适老服务 / 监督反馈</span></div>
+    </article>
     <div class="thinking-box" id="thinking-box">
       <span>思考时间</span><strong id="thinking-timer">00:00</strong>
       <p>列好观点后，开始录音作答</p>
@@ -359,11 +386,25 @@
 
   <section class="bottom-sheet" id="membership-sheet" aria-modal="true" role="dialog">
     <button class="sheet-close" data-close-sheet aria-label="关闭">×</button>
-    <span class="section-kicker">MEMBERSHIP</span><h2>练场会员</h2>
-    <div class="price-line"><strong>¥98</strong><span>/ 月</span></div>
-    <div class="benefit-list"><p>✓ AI 训练畅练与完整复盘</p><p>✓ 排位赛不限每日次数</p><p>✓ 点击考点标签智能推荐真题与素材</p><p>✓ 学习报告、题型短板与专项计划</p></div>
-    <div class="member-plan-row"><button class="active"><strong>月卡</strong><span>¥98</span></button><button><strong>季卡</strong><span>¥268</span><em>省¥26</em></button><button><strong>年卡</strong><span>¥888</span><em>赠1月</em></button></div>
-    <button class="primary-button full" data-demo-action="会员支付将在正式版接入">立即开通</button>
+    <span class="section-kicker">MEMBERSHIP & WALLET</span><h2>会员与充值</h2>
+    <div class="commerce-tabs"><button class="active" data-commerce-tab="member">开通会员</button><button data-commerce-tab="topup">充值活动</button></div>
+    <div class="commerce-panel" data-commerce-panel="member">
+      <div class="account-overview"><div><span>当前身份</span><strong>普通用户</strong></div><div><span>账户余额</span><strong>¥36.00</strong></div></div>
+      <div class="price-line"><strong>¥98</strong><span>/ 月</span></div>
+      <div class="benefit-list"><p>✓ AI 训练与排位不限次数</p><p>✓ 智能标签推荐与详细学习报告</p><p>✓ 可视化答题模板不限套数</p><p>✓ 专属标识与会员活动权益</p></div>
+      <div class="member-plan-row"><button class="active"><strong>月卡</strong><span>¥98</span></button><button><strong>季卡</strong><span>¥268</span><em>省¥26</em></button><button><strong>年卡</strong><span>¥888</span><em>赠1月</em></button></div>
+      <button class="primary-button full" data-demo-action="会员支付将在正式版接入">立即开通</button>
+    </div>
+    <div class="commerce-panel hidden" data-commerce-panel="topup">
+      <p class="sheet-intro">储值余额可用于会员、一对一指导与虚拟礼物。</p>
+      <div class="topup-grid">
+        <button data-demo-action="支付将在正式版接入"><span>热身档</span><strong>¥298</strong><small>赠 7 天会员</small></button>
+        <button data-demo-action="支付将在正式版接入"><span>冲刺档</span><strong>¥598</strong><small>赠 1 个月会员</small></button>
+        <button class="featured" data-demo-action="支付将在正式版接入"><em>最受欢迎</em><span>上岸档</span><strong>¥1,000</strong><small>赠 2 个月会员＋专属徽章</small></button>
+        <button data-demo-action="支付将在正式版接入"><span>长期档</span><strong>¥2,000</strong><small>赠 5 个月会员＋指导券</small></button>
+      </div>
+      <p class="topup-note">正式上线前需明确余额用途、退款规则、发票与未成年人保护。</p>
+    </div>
   </section>
 
   <section class="bottom-sheet" id="course-sheet" aria-modal="true" role="dialog">
@@ -375,10 +416,15 @@
   <section class="bottom-sheet" id="coach-sheet" aria-modal="true" role="dialog">
     <button class="sheet-close" data-close-sheet aria-label="关闭">×</button>
     <span class="section-kicker">1 ON 1 COACHING</span><h2>一对一指导</h2>
-    <p class="sheet-intro">首版先展示预约入口，正式开放前将完成老师认证、服务标准和退款规则。</p>
-    <div class="coach-list"><article><span>师</span><div><strong>平台认证讲师</strong><small>系统课程 · 模拟面试 · 课后报告</small></div><em>筹备中</em></article><article><span>岸</span><div><strong>高分上岸考生</strong><small>实战经验 · 针对性陪练</small></div><em>筹备中</em></article></div>
+    <p class="sheet-intro">选择认证名师或高分上岸考生，预约模拟面试、专项纠偏和个人模板共建。</p>
+    <div class="coach-filter-row"><button class="active">推荐</button><button>认证名师</button><button>上岸大神</button><button>模板指导</button></div>
+    <div class="coach-list detailed-coach-list">
+      <article><span>陈</span><div><strong>陈老师 <b>平台认证</b></strong><small>税务面试 · 8年教龄 · 评分 4.9</small><p>模拟面试＋逐题复盘＋个人模板梳理</p></div><em>¥399/次</em><button data-demo-action="已进入陈老师预约页">预约</button></article>
+      <article><span>周</span><div><strong>周学长 <b>高分认证</b></strong><small>2026 国考 88.6分 · 评分 4.8</small><p>实战陪练＋去模板化表达＋考场状态调整</p></div><em>¥169/次</em><button data-demo-action="已进入周学长预约页">预约</button></article>
+    </div>
+    <p class="coach-note">老师可在课堂中直接分享可视化答题模板，学员一键导入后继续练习。</p>
   </section>
 
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
